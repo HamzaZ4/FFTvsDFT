@@ -4,14 +4,10 @@ import wave
 import time
 
 
-plt.title("Son non periodique")
-
-plt.xlabel("Temps (s)")
-plt.ylabel("Amplitude")
 
 
 
-bruit = wave.open("200.03hz-_1_.wav", "r") # Le son: On "l'ouvre" pour donner acces aux donnes du signal
+bruit = wave.open("tuba-55(0.2).wav", "r") # Le son: On "l'ouvre" pour donner acces aux donnes du signal
 
 fe=44100 # Frequence d'echantillonnage
 
@@ -19,16 +15,15 @@ signal = bruit.readframes(-1) # lire le fichier wav
 signal = np.frombuffer(signal, "int16") # convertir la lecture du fichier wav en binaire a des entiers
 
 
-
 def DFT(x):
 
     N = len(x) # Nombre d'echantillons dans x
     n = np.arange(N) # on cree un vecter [ 0,1,2,3...(N-1) ]
     k = n.reshape((N, 1)) # on cree un vecter [ 0,1,2,3...(N-1) ] mais on reshape, donc c'est un vecteur "vertical" pour ensuite pouvoir faire multiplication plus tard
-    W = np.exp((-2j * np.pi * k * n) / N)
-    X = np.dot(W, x) # Produit scalaire entre les 2
+    W = (np.exp((-2j * np.pi * k * n) / N))
+    X = np.dot(W, x[0:N]) # Produit scalaire entre les 2
 
-    return X
+    return X[0:N]
 
 start = time.time()
 time.sleep(0)
@@ -50,13 +45,18 @@ freq = n / T  # n = Le nieme harmonique, /T, pcq on divise par la période.
 
 # FORMALITES POUR LE GRAPHIQUE A LA FIN
 
-plt.stem(freq/2, abs(X), 'b', \
+plt.stem(freq, abs(X), 'b', \
          markerfmt=" ", basefmt="-b")  # Stem = les lignes verticales qui apparaitront sur notre graphique final
 
+
+plt.title("Son non periodique")
+plt.xlabel("Temps (s)")
+plt.ylabel("Amplitude")
 plt.xlabel('Freq (Hz)')
 plt.ylabel('Amplitude')
 plt.xlim([0, 1000])
 times = end -start
 print("Le temps d'execution est de " + str(times) +" secondes")
 plt.show()
+
 
