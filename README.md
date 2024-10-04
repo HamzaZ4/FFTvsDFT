@@ -29,9 +29,11 @@ Run the DFT script to compute and visualize the DFT of the audio signal:
 python dft_script.py
 ```
 
-##Code Structure 
+## Code Structure 
 The project consists of two main folders: FFT and DFT, each containing a script for the respective Fourier transform method.
 
-# FFT Implementation
+### FFT Implementation
+
+
 
 
