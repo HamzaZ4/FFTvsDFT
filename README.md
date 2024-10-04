@@ -34,6 +34,8 @@ The project consists of two main folders: FFT and DFT, each containing a script 
 
 ### FFT Implementation
 
+The FFT implementation reads a .wav file and computes its FFT. The code can be seen in Fast/anEasyFFT.py
 
+### DFT Implementation
 
-
+The DFT implementation reads a .wav file and computes its DFT. The code can be seen in DFT/DFTdeFrappe.py
