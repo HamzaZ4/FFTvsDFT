@@ -16,7 +16,7 @@ You can install the required libraries using pip:
 pip install numpy scipy matplotlib
 ```
 
-##Usage
+## Usage
 
 Place your audio file (e.g., tuba-55(0.2).wav) in the appropriate directories for both FFT and DFT scripts.
 
@@ -32,6 +32,6 @@ python dft_script.py
 ##Code Structure 
 The project consists of two main folders: FFT and DFT, each containing a script for the respective Fourier transform method.
 
-#FFT Implementation
+# FFT Implementation
 
 
